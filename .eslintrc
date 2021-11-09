@@ -55,7 +55,6 @@
 						"servly",
 						"servly-azure",
 						"smoothly",
-						"@pax2pay/model",
 						"^@?\\w",
 						"^",
 						"^\\."

@@ -4,6 +4,12 @@
   "description": "Typescript template for Cloudflare Worker.",
   "author": "Cloudly",
   "license": "MIT",
+	"private": false,
+	"repository": "https://github.com/utily/worker-template",
+  "bugs": {
+    "url": "https://github.com/utily/worker-template/issues"
+  },
+  "homepage": "https://github.com/utily/worker-template",
   "main": "./dist/index.mjs",
   "module": "./dist/index.mjs",
   "jest": {
@@ -11,7 +17,7 @@
       "^.+\\.(j|t)sx?$": "ts-jest"
     },
     "transformIgnorePatterns": [
-      "<rootDir>/node_modules/(?!(cryptly|authly|isoly|gracely|cloud-http|cloud-router)/.*)"
+      "<rootDir>/node_modules/(?!(cryptly|authly|isoly|gracely|cloud-http|cloud-router|cloud-formdata)/.*)"
     ],
     "globals": {
       "ts-jest": {

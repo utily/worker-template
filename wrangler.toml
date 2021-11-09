@@ -1,10 +1,10 @@
 compatibility_date = "2021-10-21"
 type = "javascript"
 name = "worker-template"
-zone_id = "abcdefg01234567890"
 account_id = "abcdefg01234567890"
+zone_id = "abcdefg01234567890"
 workers_dev = true
-routes = ["https://examplec.com/item*"]
+routes = ["https://example.com/item*"]
 vars = { }
 
 [build]

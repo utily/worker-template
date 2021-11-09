@@ -25,7 +25,15 @@
 	"javascript.format.enable": false,
 	"typescript.format.enable": false,
 	"cSpell.words": [
+		"authly",
+		"cryptly",
+		"flagly",
 		"gracely",
-		"isoly"
+		"isoly",
+		"langly",
+		"paramly",
+		"persistly",
+		"servly",
+		"uply"
 	]
 }
