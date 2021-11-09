@@ -6,6 +6,11 @@ import { router } from "./router"
 
 export class Context {
 	constructor(public readonly environment: Environment) {}
+	async authenticate(request: http.Request): Promise<"admin" | undefined> {
+		return this.environment.adminSecret && request.header.authorization == `Basic ${this.environment.adminSecret}`
+			? "admin"
+			: undefined
+	}
 	static async handle(request: Request, environment: Environment): Promise<Response> {
 		let result: http.Response
 		try {
