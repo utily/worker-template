@@ -1,0 +1,21 @@
+compatibility_date = "2021-10-21"
+type = "javascript"
+name = "worker-template"
+zone_id = "abcdefg01234567890"
+account_id = "abcdefg01234567890"
+workers_dev = true
+routes = ["https://examplec.com/item*"]
+vars = { }
+
+[build]
+command = "npm install && npm run build"
+[build.upload]
+format = "modules"
+main = "./index.mjs"
+
+[env.development]
+	workers_dev = true
+	account_id = "abcdefg01234567890"
+	vars = {  }
+[dev]
+	port = 8999
