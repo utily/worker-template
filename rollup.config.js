@@ -5,6 +5,7 @@ import { terser } from "rollup-plugin-terser"
 import { nodeResolve } from "@rollup/plugin-node-resolve"
 import commonjs from "@rollup/plugin-commonjs"
 import typescript from "@rollup/plugin-typescript"
+import json from "@rollup/plugin-json"
 
 export default {
   input: "index.ts",
@@ -14,5 +15,5 @@ export default {
     file: "dist/index.mjs",
     sourcemap: true,
   },
-  plugins: [commonjs(), nodeResolve({ browser: true }), terser(), typescript()],
+  plugins: [commonjs(), nodeResolve({ browser: true }), terser(), typescript({ resolveJsonModule: true }), json()],
 }
