@@ -50,7 +50,8 @@
     "transpile": "tsc --project tsconfig.test.json",
     "deploy": "wrangler login && wrangler publish; wrangler logout",
     "login": "wrangler login",
-    "start": "wrangler dev --env development"
+    "start": "wrangler dev --env development",
+		"start:local": "miniflare dist/index.mjs"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^3.3.1",
@@ -65,6 +66,7 @@
     "eslint-plugin-prettierx": "github:utily/eslint-plugin-prettierx#utily-20211221",
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "jest": "^27.4.7",
+    "miniflare": "^2.3.0",
     "prettierx": "github:utily/prettierx#utily-20211221",
     "rimraf": "^3.0.2",
     "rollup": "^2.66.1",
