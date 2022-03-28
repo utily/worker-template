@@ -50,8 +50,8 @@
     "transpile": "tsc --project tsconfig.test.json",
     "deploy": "wrangler login && wrangler publish; wrangler logout",
     "login": "wrangler login",
-    "start": "wrangler dev --env development",
-		"start:local": "miniflare dist/index.mjs --wrangler-env development"
+    "start": "wrangler dev rollup--env development",
+		"start:local": "rollup -c --watch & miniflare dist/index.mjs --wrangler-env development --watch --live-reload -B \"\" && kill $!"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^3.3.1",
