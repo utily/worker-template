@@ -51,7 +51,7 @@
     "deploy": "wrangler login && wrangler publish; wrangler logout",
     "login": "wrangler login",
     "start": "wrangler dev --env development",
-		"start:local": "miniflare dist/index.mjs"
+		"start:local": "miniflare dist/index.mjs --wrangler-env development"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^3.3.1",
