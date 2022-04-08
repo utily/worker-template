@@ -1,6 +1,6 @@
 {
   "name": "@utily/worker-template",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Typescript template for Cloudflare Worker.",
   "author": "Utily Contributors",
   "license": "MIT",
@@ -51,7 +51,7 @@
     "deploy": "wrangler login && wrangler publish; wrangler logout",
     "login": "wrangler login",
     "start": "wrangler dev rollup--env development",
-		"start:local": "rollup -c --watch & miniflare dist/index.mjs --watch --live-reload -B \"\" && kill $!"
+    "start:local": "rollup -c --watch & miniflare dist/index.mjs --watch --live-reload -B \"\" && kill $!"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^3.3.1",
