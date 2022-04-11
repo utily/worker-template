@@ -15,9 +15,7 @@ export default {
     format: "es",
     file: "dist/index.mjs",
     sourcemap: true,
-		sourcemapPathTransform: (relativeSourcePath, sourcemapPath) => {
-			return path.resolve(__dirname, relativeSourcePath.replace(/^(..\/)+/, ""))
-		}
+		sourcemapPathTransform: relativeSourcePath => path.resolve(__dirname, relativeSourcePath.replace(/^(..\/)+/, "")),
   },
   plugins: [commonjs(), nodeResolve({ browser: true }), terser(), typescript({ resolveJsonModule: true }), json()],
 }
