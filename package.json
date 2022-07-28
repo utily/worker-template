@@ -1,6 +1,6 @@
 {
   "name": "@utily/worker-template",
-  "version": "0.0.9",
+  "version": "0.0.11",
   "description": "Typescript template for Cloudflare Worker.",
   "author": "Utily Contributors",
   "license": "MIT",
@@ -49,6 +49,7 @@
     "lint": "eslint --max-warnings=0 '**/*.{ts,tsx}'",
     "fix": "eslint '**/*.{ts,tsx}' --fix",
     "build": "rollup -c",
+    "build:local": "rollup --config rollup.dev.config.js",
     "dev": "NODE_ENV=development npm run build",
     "test": "jest",
     "transpile": "tsc --project tsconfig.test.json",
