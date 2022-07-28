@@ -49,6 +49,10 @@
       "script": "test.watch",
       "isBackground": true,
       "problemMatcher": []
-    }
+    },
+		{
+			"type": "npm",
+			"script": "kill",
+		}
   ]
 }

@@ -6,16 +6,26 @@ zone_id = "abcdefg01234567890"
 workers_dev = true
 routes = ["https://example.com/item*"]
 vars = { }
+port = 8787
 
 [build]
 command = "npm install && npm run build"
+
 [build.upload]
 format = "modules"
-main = "./index.mjs"
+main = "./_worker.js"
 
-[env.development]
-	workers_dev = true
-	account_id = "abcdefg01234567890"
-	vars = {  }
-[dev]
-	port = 8999
+[env.wrangler]
+workers_dev = true
+account_id = "abcdefg01234567890"
+vars = {  }
+
+[env.miniflare]
+vars = { }
+durable_objects.bindings = [
+
+]
+
+[miniflare]
+durable_objects_persist = "./.miniflare/durable-objects/"
+kv_persist = "./.miniflare/kv/"
