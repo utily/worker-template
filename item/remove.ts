@@ -12,7 +12,7 @@ export async function remove(request: http.Request, context: Context): Promise<h
 	else if (!id || id.length != 1 || id < "a" || id > "f")
 		result = gracely.client.invalidPathArgument("item/:id", "id", "string", "A valid identifier is required.")
 	else
-		result = { id, number: id.charCodeAt(0) - "a".charCodeAt(65) }
+		result = { id, number: id.charCodeAt(0) - "a".charCodeAt(0) }
 	return result
 }
-router.add("DELETE", "item/:id", remove)
+router.add("DELETE", "/item/:id", remove)
