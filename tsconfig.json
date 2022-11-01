@@ -11,7 +11,13 @@
     "sourceMap": true,
     "esModuleInterop": true,
     "types": ["@cloudflare/workers-types", "node"],
-		"resolveJsonModule": true
+		"resolveJsonModule": true,
+		"noImplicitAny": true,
+		"removeComments": true,
+		"forceConsistentCasingInFileNames": true,
+		"noImplicitThis": true,
+		"strictNullChecks": true,
+		"allowJs": true
   },
   "include": [
     "*.ts",
