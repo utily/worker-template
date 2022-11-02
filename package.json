@@ -1,6 +1,6 @@
 {
   "name": "@utily/worker-template",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "description": "Typescript template for Cloudflare Worker.",
   "author": "Utily Contributors",
   "license": "MIT",
