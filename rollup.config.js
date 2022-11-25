@@ -18,4 +18,11 @@ export default {
 		sourcemapPathTransform: relativeSourcePath => path.resolve(__dirname, relativeSourcePath.replace(/^(..\/)+/, "")),
   },
   plugins: [commonjs(), nodeResolve({ browser: true }), terser(), typescript({ resolveJsonModule: true }), json()],
+	watch: {
+		clearScreen: false,
+	},
+	onwarn: warning => {
+		if ( warning.code !== 'THIS_IS_UNDEFINED' )
+			console.warn( warning.message );
+	},
 }
