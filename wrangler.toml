@@ -1,4 +1,4 @@
-compatibility_date = "2022-11-25"
+compatibility_date = "2023-01-23"
 name = "worker-template"
 workers_dev = true
 routes = []
