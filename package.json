@@ -1,6 +1,6 @@
 {
-  "name": "@utily/worker-template",
-  "version": "0.0.16",
+  "name": "",
+  "version": "0.0.1",
   "description": "Typescript template for Cloudflare Worker.",
   "author": "Utily Contributors",
   "license": "MIT",
@@ -87,6 +87,7 @@
     "cloudly-formdata": "^0.0.8",
     "cloudly-http": "^0.0.52",
     "cloudly-router": "^0.0.25",
+    "cloudly-storage": "^0.7.3",
     "gracely": "^2.0.3"
   }
 }

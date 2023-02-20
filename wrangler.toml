@@ -20,11 +20,13 @@ r2_buckets = []
 [env.local]
 workers_dev = true
 vars = { adminSecret = "adminSecret" }
-durable_objects.bindings = []
+durable_objects.bindings = [
+	{name = "junction", class_name = "Junction"}
+]
 kv_namespaces = []
 r2_buckets = []
 
 [miniflare]
 durable_objects_persist = "./.miniflare/durable-objects/"
 kv_persist = "./.miniflare/kv/"
-port = 8788
+port = 8787

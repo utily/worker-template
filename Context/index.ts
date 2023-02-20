@@ -1,10 +1,16 @@
 import * as gracely from "gracely"
 import { FormData } from "cloudly-formdata"
 import * as http from "cloudly-http"
+import { router } from "../router"
 import { Environment } from "./Environment"
-import { router } from "./router"
+import { Junction } from "./Junction"
 
 export class Context {
+	#junction?: gracely.Error | Junction
+	get junction() {
+		return this.#junction ?? Junction.create(this.environment.junction)
+	}
+
 	constructor(public readonly environment: Environment) {}
 	async authenticate(request: http.Request): Promise<"admin" | undefined> {
 		return this.environment.adminSecret && request.header.authorization == `Basic ${this.environment.adminSecret}`
