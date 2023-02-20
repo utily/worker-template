@@ -5,9 +5,9 @@ import { router } from "./router"
 async function upgrade(_: http.Request, context: Context): Promise<any> {
 	const { client, server } = context.upgrade()
 	server.json.onOpen = () => {
-		console.log("sending")
-		server.json.send({ message: "hello world" })
+		server.json.send({ message: "server first message" })
 	}
+	server.json.onMessage = message => server.json.send({ ...message, message: "echo: " + message.message })
 	return client.createResponse()
 }
 

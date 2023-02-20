@@ -11,7 +11,7 @@
 	<script>
 		console.log("loading...")
 		const connection = new WebSocket("ws://localhost:8787/upgrade")
-		connection.addEventListener("open", () => connection.send(JSON.stringify({message: "hello world"})))
+		connection.addEventListener("open", () => connection.send(JSON.stringify({message: "hello world!!!"})))
 		connection.addEventListener("message", (message) => console.log(JSON.parse(message.data)))
 
 		console.log("loaded")

@@ -10,11 +10,7 @@ export class Junction {
 		return this.junction.open(junction)
 	}
 	async upgrade(junction: string): Promise<any> {
-		const client = this.raw.get(this.raw.idFromName(junction))
-		const response = await client.fetch("http://origin/upgrade")
-		return response
-		// const result = await this.connect(junction).get<unknown>("/upgrade")
-		// return result
+		return this.raw.get(this.raw.idFromName(junction)).fetch("http://origin/upgrade")
 	}
 
 	static create(junction?: DurableObjectNamespace): Junction | gracely.Error {
