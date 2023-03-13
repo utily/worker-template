@@ -9,7 +9,7 @@
 				"--experimental-vm-modules",
 				"--inspect",
 				"./node_modules/miniflare/dist/src/cli.js",
-				"dist/_worker.mjs",
+				"dist/_worker.js",
 				"--wrangler-env",
 				"miniflare",
 				"--watch",

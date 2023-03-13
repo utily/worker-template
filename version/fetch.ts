@@ -1,4 +1,4 @@
-import { http } from "cloudly-http"
+import * as http from "cloudly-http"
 import { Context } from "../Context"
 import * as data from "../package.json"
 import { router } from "../router"

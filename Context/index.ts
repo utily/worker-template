@@ -1,4 +1,4 @@
-import { http } from "cloudly-http"
+import * as http from "cloudly-http"
 import { Environment as ContextEnvironment } from "./Environment"
 
 export class Context {
