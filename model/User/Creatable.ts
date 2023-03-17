@@ -6,7 +6,7 @@ export interface Creatable {
 	password?: string
 }
 export namespace Creatable {
-	export const type = isly.object({
+	export const type = isly.object<Creatable>({
 		email: isly.string(),
 		name: isly.union(isly.string(), isly.object({ first: isly.string(), last: isly.string() })),
 		password: isly.string().optional(),

@@ -9,7 +9,7 @@ export interface User {
 }
 
 export namespace User {
-	export const type = isly.object({
+	export const type = isly.object<User>({
 		email: isly.string(),
 		name: isly.union(isly.string(), isly.object({ first: isly.string(), last: isly.string() })),
 		created: isly.tuple(isly.string(), isly.string()),

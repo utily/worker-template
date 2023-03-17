@@ -1,9 +1,10 @@
+import { isly } from "isly"
 export interface Creatable {
 	number: number
 }
 
 export namespace Creatable {
-	export function is(value: any | Creatable): value is Creatable {
-		return typeof value == "object" && typeof value.number == "number"
-	}
+	export const type = isly.object<Creatable>({ number: isly.number() })
+	export const is = type.is
+	export const flaw = type.flaw
 }
