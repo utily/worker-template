@@ -1,4 +1,4 @@
-import * as model from "../model"
+import { model } from "../model"
 
 export const users: Record<string, (model.User & { password: string; token: string }) | undefined> = {
 	"joe@example.com": {
