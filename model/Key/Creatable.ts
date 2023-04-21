@@ -6,7 +6,7 @@ export interface Creatable {
 }
 
 export namespace Creatable {
-	export const type = isly.object({
+	export const type = isly.object<Creatable>({
 		user: isly.string(),
 		organization: isly.union(isly.string(), isly.array(isly.string())),
 	})

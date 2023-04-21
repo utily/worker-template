@@ -32,7 +32,7 @@ const transformers: (authly.Property.Transformer | undefined)[] = [
 ]
 
 export namespace Key {
-	export const type = KeyCreatable.type.extend({
+	export const type = KeyCreatable.type.extend<Key>({
 		issuer: Issuer.Name.type,
 		issued: isly.string(),
 		expires: isly.string(),
@@ -40,12 +40,13 @@ export namespace Key {
 	})
 	export const is = type.is
 	export const flaw = type.flaw
+	export type Issuer = authly.Issuer<KeyCreatable>
 	export namespace Issuer {
-		export function create(issuer: Name, privateKey?: string): Issuer {
+		export function create(issuer: Name, privateKey?: string): Issuer | undefined {
 			return (
 				// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 				(
-					privateKey == undefined
+					privateKey == "none"
 						? authly.Issuer.create<Key>(issuer, authly.Algorithm.none())
 						: authly.Issuer.create<Key>(issuer, authly.Algorithm.RS256(undefined, privateKey))
 				)!.add(...transformers)
@@ -59,13 +60,12 @@ export namespace Key {
 			export const flaw = type.flaw
 		}
 	}
-	export type Issuer = authly.Issuer<KeyCreatable>
 	export type Verifier = authly.Verifier<Key>
 	export namespace Verifier {
 		const publicKeys: { [system in Issuer.Name]: string | undefined } = {
 			utily:
 				// create new key
-				"",
+				"MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAu1SU1LfVLPHCozMxH2Mo4lgOEePzNm0tRgeLezV6ffAt0gunVTLw7onLRnrq0/IzW7yWR7QkrmBL7jTKEn5u+qKhbwKfBstIs+bMY2Zkp18gnTxKLxoS2tFczGkPLPgizskuemMghRniWaoLcyehkd3qqGElvW/VDL5AaWTg0nLVkjRo9z+40RQzuVaE8AkAFmxZzow3x+VJYKdjykkJ0iT9wCS0DRTXu269V264Vf/3jvredZiKRkgwlL9xNAwxXFg0x/XFw005UWVRIkdgcKWTjpBP2dPwVZ4WWC+9aGVd+Gyn1o0CLelf4rEjGoXbAAEgAqeGUxrcIlbjXfbcmwIDAQAB",
 			local: undefined,
 		}
 		export function create(issuer: Issuer.Name): Verifier {

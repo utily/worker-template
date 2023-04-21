@@ -2,6 +2,7 @@ import { Context } from "./Context"
 import { router } from "./router"
 
 import "./item"
+import "./key"
 import "./proxy"
 import "./version"
 
