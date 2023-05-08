@@ -3,7 +3,6 @@ import * as isoly from "isoly"
 import { http } from "cloudly-http"
 import * as storage from "cloudly-storage"
 import { model } from "../../model"
-import { Environment } from "../Environment"
 import { User } from "./User"
 
 export class Users {
@@ -23,16 +22,12 @@ export class Users {
 	async list(options?: storage.KeyValueStore.ListOptions): Promise<storage.Continuable<model.User>> {
 		return (await this.store.list(options)).map(v => User.toModel(v.value as User))
 	}
-	static create(environment: Environment): Users | gracely.Error {
-		return environment.store
-			? new Users(
-					storage.KeyValueStore.partition(
-						storage.KeyValueStore.Json.create(
-							storage.KeyValueStore.OnlyMeta.create(storage.KeyValueStore.open(environment.store))
-						),
-						"user|"
-					)
-			  )
-			: gracely.server.misconfigured("store", "Key Value Namespace missing.")
+	static create(store: storage.KeyValueStore): Users | gracely.Error {
+		return new Users(
+			storage.KeyValueStore.partition(
+				storage.KeyValueStore.Json.create(storage.KeyValueStore.OnlyMeta.create(store)),
+				"user|"
+			)
+		)
 	}
 }
