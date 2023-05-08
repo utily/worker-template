@@ -53,7 +53,7 @@
 		"transpile": "tsc --project tsconfig.test.json",
 		"deploy": "wrangler login && wrangler publish --env production; wrangler logout",
 		"login": "wrangler login",
-		"start": "(rollup --config rollup.dev.config.js --watch) & (node --experimental-vm-modules --inspect ./node_modules/miniflare/dist/src/cli.js dist/_worker.js --wrangler-env miniflare --watch --live-reload -B 'while [ ! -f dist/_worker.js ]; do sleep 0.1; done' && kill $!)",
+		"start": "(rollup --config rollup.dev.config.js --watch) & (node --experimental-vm-modules --inspect ./node_modules/miniflare/dist/src/cli.js dist/_worker.mjs --wrangler-env miniflare --watch --live-reload -B 'while [ ! -f dist/_worker.mjs ]; do sleep 0.1; done' && kill $!)",
 		"start:wrangler": "wrangler dev --env wrangler",
 		"clean": "rimraf dist node_modules coverage",
 		"kill": "(grep port wrangler.toml | awk '{print $3}' | xargs -i lsof -i :{} 2>/dev/null | awk '{if (NR!=1) {print $2}}' | xargs kill 2>/dev/null) && (ps -aux | grep rollup | grep watch | awk '{print $2}' | xargs kill 2>/dev/null)"
@@ -71,7 +71,7 @@
 		"eslint-plugin-prettierx": "github:utily/eslint-plugin-prettierx#utily-20221229",
 		"eslint-plugin-simple-import-sort": "^10.0.0",
 		"jest": "^29.5.0",
-		"miniflare": "^2.14.0",
+		"miniflare": "2.13.0",
 		"prettierx": "github:utily/prettierx#utily-20221229",
 		"rimraf": "^5.0.0",
 		"rollup": "^3.21.5",

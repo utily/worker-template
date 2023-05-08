@@ -9,12 +9,12 @@
 				"--experimental-vm-modules",
 				"--inspect",
 				"./node_modules/miniflare/dist/src/cli.js",
-				"dist/_worker.js",
+				"dist/_worker.mjs",
 				"--wrangler-env",
 				"miniflare",
 				"--watch",
 				"-B",
-				""
+				"while [ ! -f dist/_worker.mjs ]; do sleep 0.1; done"
 			], 
 			"skipFiles": ["<node_internals>/**"],
 			"preLaunchTask": "TypeScript watcher"
