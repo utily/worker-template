@@ -32,14 +32,6 @@ const transformers: (authly.Property.Transformer | undefined)[] = [
 ]
 
 export namespace Key {
-	export const type = KeyCreatable.type.extend<Key>({
-		issuer: Issuer.Name.type,
-		issued: isly.string(),
-		expires: isly.string(),
-		token: isly.string(),
-	})
-	export const is = type.is
-	export const flaw = type.flaw
 	export type Issuer = authly.Issuer<KeyCreatable>
 	export namespace Issuer {
 		export function create(issuer: Name, privateKey?: string): Issuer | undefined {
@@ -60,6 +52,14 @@ export namespace Key {
 			export const flaw = type.flaw
 		}
 	}
+	export const type = KeyCreatable.type.extend<Key>({
+		issuer: Issuer.Name.type,
+		issued: isly.string(),
+		expires: isly.string(),
+		token: isly.string(),
+	})
+	export const is = type.is
+	export const flaw = type.flaw
 	export type Verifier = authly.Verifier<Key>
 	export namespace Verifier {
 		const publicKeys: { [system in Issuer.Name]: string | undefined } = {
