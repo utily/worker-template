@@ -13,12 +13,12 @@ export interface Key extends KeyCreatable {
 const transformers: (authly.Property.Transformer | undefined)[] = [
 	new authly.Property.Converter({
 		issued: {
-			forward: value => value,
-			backward: value => isoly.DateTime.create(value as number),
+			forward: (value: isoly.DateTime) => isoly.DateTime.epoch(value, "seconds"),
+			backward: (value: number) => isoly.DateTime.create(value),
 		},
 		expires: {
-			forward: value => value,
-			backward: value => isoly.DateTime.create(value as number),
+			forward: (value: isoly.DateTime) => isoly.DateTime.epoch(value, "seconds"),
+			backward: (value: number) => isoly.DateTime.create(value),
 		},
 	}),
 	new authly.Property.Renamer({

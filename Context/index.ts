@@ -16,8 +16,8 @@ export class Context {
 	get verifier(): model.Key.Verifier {
 		return (this.#verifier ??= model.Key.Verifier.create("local"))
 	}
-	#store?: storage.KeyValueStore | gracely.Error
-	private get store(): storage.KeyValueStore | gracely.Error {
+	#store?: storage.KeyValueStore<string, string> | gracely.Error
+	private get store(): storage.KeyValueStore<string, string> | gracely.Error {
 		return (this.#store ??= this.environment.store
 			? storage.KeyValueStore.open(this.environment.store)
 			: gracely.server.misconfigured("store", "Key Value Namespace missing."))

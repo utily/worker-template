@@ -22,10 +22,10 @@ export class Users {
 	async list(options?: storage.KeyValueStore.ListOptions): Promise<storage.Continuable<model.User>> {
 		return (await this.store.list(options)).map(v => User.toModel(v.value as User))
 	}
-	static create(store: storage.KeyValueStore): Users | gracely.Error {
+	static create(store: storage.KeyValueStore<string, string>): Users | gracely.Error {
 		return new Users(
 			storage.KeyValueStore.partition(
-				storage.KeyValueStore.Json.create(storage.KeyValueStore.OnlyMeta.create(store)),
+				storage.KeyValueStore.Json.create(storage.KeyValueStore.OnlyMeta.create<string>(store)),
 				"user|"
 			)
 		)
