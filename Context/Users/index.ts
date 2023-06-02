@@ -7,7 +7,7 @@ import { User } from "./User"
 
 export class Users {
 	private constructor(private readonly store: storage.KeyValueStore<User>) {}
-	async add(user: model.User.Creatable, admin: string): Promise<model.User> {
+	async add(user: model.User.Creatable, admin: string): Promise<model.User | undefined> {
 		const result: User = { ...user, created: [isoly.DateTime.now(), admin] }
 		await this.store.set(user.email, result)
 		return User.toModel(result)
@@ -19,7 +19,7 @@ export class Users {
 			? User.toModel(result.value)
 			: undefined
 	}
-	async list(options?: storage.KeyValueStore.ListOptions): Promise<storage.Continuable<model.User>> {
+	async list(options?: storage.KeyValueStore.ListOptions): Promise<storage.Continuable<model.User | undefined>> {
 		return (await this.store.list(options)).map(v => User.toModel(v.value as User))
 	}
 	static create(store: storage.KeyValueStore<string, string>): Users | gracely.Error {

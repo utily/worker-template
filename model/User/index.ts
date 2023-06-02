@@ -12,7 +12,10 @@ export namespace User {
 	export const type = isly.object<User>({
 		email: isly.string(),
 		name: isly.union(isly.string(), isly.object({ first: isly.string(), last: isly.string() })),
-		created: isly.tuple(isly.string(), isly.string()),
+		created: isly.tuple(
+			isly.fromIs<isoly.DateTime>("DateTime", value => isoly.DateTime.is(value)),
+			isly.string()
+		),
 	})
 	export const is = type.is
 	export const flaw = type.flaw
