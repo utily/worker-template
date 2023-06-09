@@ -18,6 +18,10 @@ export class Users {
 			? User.toModel(result.value)
 			: undefined
 	}
+	async changePassword(user: string, password: string): Promise<boolean> {
+		const data = (await this.store.get(user))?.value
+		return !!(data && (data.password = password) && (await this.store.set(user, data), true))
+	}
 	async list(options?: storage.KeyValueStore.ListOptions): Promise<storage.Continuable<model.User | undefined>> {
 		return (await this.store.list(options)).map(v => User.toModel(v.value as User))
 	}
