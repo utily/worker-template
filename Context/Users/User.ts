@@ -1,9 +1,13 @@
+import * as isoly from "isoly"
 import { isly } from "isly"
 import { model } from "../../model"
 
 export type User = model.User & model.User.Creatable
 
 export namespace User {
+	export function fromModel(user: model.User.Creatable, admin: string): User {
+		return { ...user, created: [isoly.DateTime.now(), admin] }
+	}
 	export function toModel(user: User | undefined): model.User | undefined {
 		return model.User.type.get(user)
 	}

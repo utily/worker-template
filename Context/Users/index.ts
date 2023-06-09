@@ -1,5 +1,4 @@
 import * as gracely from "gracely"
-import * as isoly from "isoly"
 import { http } from "cloudly-http"
 import * as storage from "cloudly-storage"
 import { model } from "../../model"
@@ -8,7 +7,7 @@ import { User } from "./User"
 export class Users {
 	private constructor(private readonly store: storage.KeyValueStore<User>) {}
 	async add(user: model.User.Creatable, admin: string): Promise<model.User | undefined> {
-		const result: User = { ...user, created: [isoly.DateTime.now(), admin] }
+		const result: User = User.fromModel(user, admin)
 		await this.store.set(user.email, result)
 		return User.toModel(result)
 	}
