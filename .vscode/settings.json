@@ -11,6 +11,21 @@
 		"*.code-workspace": true,
 		"*.config.js": true,
 		"*.toml": true
+	},// Make it possible to open excluded files with Ctrl + P
+	"search.exclude": {
+		".*": false,
+		"*.json": false,
+		"dist": false,
+		"README.md": false,
+		"LICENSE": false,
+		"CODEOWNERS": false,
+		"tsconfig.*": false,
+		"node_modules": false,
+		"*.code-workspace": false,
+		"*.config.js": false,
+		"*.toml": false,
+		"*.config.ts": false,
+		"www/": false
 	},
 	"editor.tabSize": 2,
 	"editor.detectIndentation": false,
