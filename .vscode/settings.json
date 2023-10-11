@@ -25,7 +25,6 @@
 		"*.config.js": false,
 		"*.toml": false,
 		"*.config.ts": false,
-		"www/": false
 	},
 	"editor.tabSize": 2,
 	"editor.detectIndentation": false,
