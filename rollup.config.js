@@ -6,7 +6,6 @@ import { nodeResolve } from "@rollup/plugin-node-resolve"
 import commonjs from "@rollup/plugin-commonjs"
 import typescript from "@rollup/plugin-typescript"
 import json from "@rollup/plugin-json"
-import path from "path"
 
 export default {
   input: "index.ts",
@@ -15,9 +14,11 @@ export default {
     format: "es",
     file: "dist/_worker.js",
     sourcemap: true,
-		sourcemapPathTransform: relativeSourcePath => path.resolve(__dirname, relativeSourcePath.replace(/^(\.\.\/)+/, "")),
+		sourcemapPathTransform: relativeSourcePath => 
+			relativeSourcePath.replace(/^(\.\.\/)(?=node_modules)/, "../").replace(/^(\.\.\/)+(?!node_modules)/, "../")
+		,
   },
-  plugins: [commonjs(), nodeResolve({ browser: true }), terser(), typescript({ resolveJsonModule: true }), json()],
+  plugins: [commonjs(), nodeResolve({ browser: true }), typescript({ resolveJsonModule: true }), json(), ...(process.env.NODE_ENV == "production" ? [terser()] : [])],
 	watch: {
 		clearScreen: false,
 	},
