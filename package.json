@@ -46,17 +46,14 @@
 	"scripts": {
 		"lint": "eslint --max-warnings=0 '**/*.{ts,tsx}'",
 		"fix": "eslint '**/*.{ts,tsx}' --fix",
-		"build": "rollup -c",
-		"build:local": "rollup --config rollup.dev.config.js",
-		"dev": "NODE_ENV=development npm run build",
+		"build": "NODE_ENV=production rollup -c",
+		"build:local": "NODE_ENV=development rollup -c",
 		"test": "jest",
 		"transpile": "tsc --project tsconfig.test.json",
-		"deploy": "wrangler publish --env production",
+		"deploy": "NODE_ENV=production wrangler publish --env production",
 		"login": "wrangler login",
-		"start": "(rollup --config rollup.dev.config.js --watch) & (node --experimental-vm-modules --inspect ./node_modules/miniflare/dist/src/cli.js dist/_worker.mjs --wrangler-env local --watch --live-reload -B 'while [ ! -f dist/_worker.mjs ]; do sleep 0.1; done' ; kill $!)",
-		"start:wrangler": "wrangler dev --env local",
-		"clean": "rimraf dist node_modules coverage",
-		"kill": "(grep port wrangler.toml | awk '{print $3}' | xargs -i lsof -i :{} | awk '{if (NR!=1) {print $2}}' | xargs kill 2>/dev/null) && (ps -aux | grep rollup | grep watch | awk '{print $2}' | xargs kill 2>/dev/null)"
+		"start": "NODE_ENV=development && (rollup -c --watch) & (while [ ! -f dist/_worker.js ]; do sleep 0.1; done && wrangler dev --live-reload --env local --inspector-port 9229 ; kill $!)",
+		"clean": "rimraf dist node_modules coverage"
 	},
 	"devDependencies": {
 		"@cloudflare/workers-types": "^4.20230518.0",
@@ -71,7 +68,6 @@
 		"eslint-plugin-prettierx": "github:utily/eslint-plugin-prettierx#utily-20231004",
 		"eslint-plugin-simple-import-sort": "^10.0.0",
 		"jest": "^29.5.0",
-		"miniflare": "^2.14.0",
 		"prettierx": "github:utily/prettierx#utily-20231004",
 		"rimraf": "^5.0.1",
 		"rollup": "^2.79.1",
@@ -79,7 +75,7 @@
 		"ts-jest": "^29.1.0",
 		"tslib": "^2.5.2",
 		"typescript": "^5.0.4",
-		"wrangler": "^3.0.1"
+		"wrangler": "^3.14.0"
 	},
 	"dependencies": {
 		"authly": "^3.0.1",
