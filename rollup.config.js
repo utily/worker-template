@@ -7,6 +7,8 @@ import commonjs from "@rollup/plugin-commonjs"
 import typescript from "@rollup/plugin-typescript"
 import json from "@rollup/plugin-json"
 
+const nodeEnvironment = process.env.NODE_ENV
+
 export default {
   input: "index.ts",
   output: {
@@ -18,7 +20,7 @@ export default {
 			relativeSourcePath.replace(/^(\.\.\/)(?=node_modules)/, "../").replace(/^(\.\.\/)+(?!node_modules)/, "../")
 		,
   },
-  plugins: [commonjs(), nodeResolve({ browser: true }), typescript({ resolveJsonModule: true }), json(), ...(process.env.NODE_ENV == "production" ? [terser()] : [])],
+  plugins: [commonjs(), nodeResolve({ browser: true }), typescript({ resolveJsonModule: true }), json(), ...(nodeEnvironment == "production" ? [terser()] : [])],
 	watch: {
 		clearScreen: false,
 	},

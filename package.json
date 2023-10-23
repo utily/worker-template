@@ -47,12 +47,12 @@
 		"lint": "eslint --max-warnings=0 '**/*.{ts,tsx}'",
 		"fix": "eslint '**/*.{ts,tsx}' --fix",
 		"build": "NODE_ENV=production rollup -c",
-		"build:local": "NODE_ENV=development npm run build",
+		"build:local": "NODE_ENV=development rollup -c",
 		"test": "jest",
 		"transpile": "tsc --project tsconfig.test.json",
-		"deploy": "wrangler publish --env production",
+		"deploy": "NODE_ENV=production wrangler publish --env production",
 		"login": "wrangler login",
-		"start": "(rollup -c --watch) & (while [ ! -f dist/_worker.js ]; do sleep 0.1; done && wrangler dev --live-reload --env local --inspector-port 9229 ; kill $!)",
+		"start": "NODE_ENV=development && (rollup -c --watch) & (while [ ! -f dist/_worker.js ]; do sleep 0.1; done && wrangler dev --live-reload --env local --inspector-port 9229 ; kill $!)",
 		"clean": "rimraf dist node_modules coverage"
 	},
 	"devDependencies": {
