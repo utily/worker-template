@@ -17,8 +17,7 @@ export default {
     file: "dist/_worker.js",
     sourcemap: true,
 		sourcemapPathTransform: relativeSourcePath => 
-			relativeSourcePath.replace(/^(\.\.\/)(?=node_modules)/, "../").replace(/^(\.\.\/)+(?!node_modules)/, "../")
-		,
+			relativeSourcePath.replace(/^(\.\.\/)(?=node_modules)/, "../").replace(/^(\.\.\/)+(?!node_modules)/, "../"),
   },
   plugins: [commonjs(), nodeResolve({ browser: true }), typescript({ resolveJsonModule: true }), json(), ...(nodeEnvironment == "production" ? [terser()] : [])],
 	watch: {
