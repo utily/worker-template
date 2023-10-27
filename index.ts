@@ -1,6 +1,7 @@
 import { Context } from "./Context"
 import { router } from "./router"
 
+import "./image"
 import "./item"
 import "./version"
 
