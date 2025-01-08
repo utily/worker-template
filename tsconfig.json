@@ -17,8 +17,8 @@
 		/* base options */
 		"esModuleInterop": true,
 		"types": [
-			"vitest/globals",
-			"@cloudflare/workers-types"
+			"@cloudflare/workers-types",
+			"vitest/globals"
 		],
 		"skipLibCheck": true,
 		"resolveJsonModule": true,
@@ -38,7 +38,13 @@
 		"allowJs": true
 	},
 	"include": [
-		"**/*.spec.ts",
+		"*.ts",
+		"**/*.ts",
+		"./node_modules/@cloudflare/workers-types/index.d.ts"
+	],
+	"exclude": [
+		"node_modules/",
+		"dist/"
 	],
 	"files": [
 		"index.ts"

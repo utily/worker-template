@@ -33,31 +33,30 @@
 		"clean": "rimraf dist node_modules coverage"
 	},
 	"devDependencies": {
-		"@cloudflare/workers-types": "^4.20230518.0",
-		"rollup": "^2.79.1",
-		"rollup-plugin-copy": "^3.4.0",
-		"rollup-plugin-terser": "^7.0.2",
-		"@rollup/plugin-commonjs": "^25.0.0",
-		"@rollup/plugin-json": "^6.0.0",
-		"@rollup/plugin-node-resolve": "^15.0.2",
-		"@rollup/plugin-typescript": "^11.1.1",
-		"@typescript-eslint/eslint-plugin": "5.59.7",
-		"@typescript-eslint/parser": "5.59.7",
-		"eslint": "^8.41.0",
+		"@cloudflare/workers-types": "^4.20241230.0",
+		"rollup": "^4.30.1",
+		"rollup-plugin-copy": "^3.5.0",
+		"@rollup/plugin-terser": "^0.4.4",
+		"@rollup/plugin-commonjs": "^28.0.2",
+		"@rollup/plugin-json": "^6.1.0",
+		"@rollup/plugin-node-resolve": "^16.0.0",
+		"@rollup/plugin-typescript": "^12.1.2",
+		"@typescript-eslint/eslint-plugin": "7.15.0",
+		"@typescript-eslint/parser": "7.15.0",
+		"eslint": "^8.57.0",
 		"eslint-plugin-prettierx": "github:utily/eslint-plugin-prettierx#utily-20231004",
-		"eslint-plugin-simple-import-sort": "^10.0.0",
+		"eslint-plugin-simple-import-sort": "^12.1.1",
 		"prettierx": "github:utily/prettierx#utily-20231004",
 		"@vitest/coverage-istanbul": "^2.1.8",
 		"vitest": "^2.1.8",
-		"rimraf": "^5.0.1",
-		"tslib": "^2.5.2",
-		"typescript": "^5.0.4",
-		"wrangler": "^3.14.0"
+		"rimraf": "^6.0.1",
+		"tslib": "^2.8.1",
+		"typescript": "^5.7.2",
+		"wrangler": "^3.100.0"
 	},
 	"dependencies": {
-		"authly": "^3.0.1",
-		"cloudly-http": "^0.2.0-alpha.7",
-		"cloudly-router": "^0.2.0-alpha.1",
-		"gracely": "^2.0.3"
+		"cloudly-http": "0.2.0-alpha.21",
+		"cloudly-router": "0.2.0-alpha.18",
+		"gracely": "2.0.9"
 	}
 }
