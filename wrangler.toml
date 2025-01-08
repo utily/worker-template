@@ -1,8 +1,8 @@
-compatibility_date = "2023-10-16"
+compatibility_date = "2024-12-30"
 name = "worker-template"
 workers_dev = true
 routes = []
-vars = { }
+vars = {}
 main = "./dist/_worker.js"
 
 
@@ -11,7 +11,7 @@ command = "npm install && npm run build"
 
 [env.production]
 workers_dev = false
-vars = {  }
+vars = {}
 durable_objects.bindings = []
 kv_namespaces = []
 r2_buckets = []
