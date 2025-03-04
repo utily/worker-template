@@ -24,32 +24,34 @@
 		"fix": "eslint '**/*.{ts,tsx}' --fix",
 		"test": "vitest --run",
 		"coverage": "vitest --coverage",
-		"build": "NODE_ENV=production wrangler build",
-		"build:local": "NODE_ENV=development wrangler build",
-		"transpile": "tsc --project tsconfig.test.json",
-		"deploy": "NODE_ENV=production wrangler deploy --env production",
+		"build": "wrangler deploy --dry-run --outdir=dist",
+		"transpile": "tsc --build tsconfig.json -noEmit",
+		"deploy": "wrangler deploy --env production",
 		"login": "wrangler login",
-		"start": "NODE_ENV=development && wrangler dev --live-reload --env local --inspector-port 9229",
+		"start": "wrangler dev --live-reload --env local --inspector-port 9229",
 		"clean": "rimraf dist node_modules coverage"
+	},
+	"overrides": {
+		"esbuild": ">=0.25.0"
 	},
 	"devDependencies": {
 		"@cloudflare/workers-types": "^4.20241230.0",
 		"@typescript-eslint/eslint-plugin": "7.15.0",
 		"@typescript-eslint/parser": "7.15.0",
+		"@vitest/coverage-istanbul": "^3.0.7",
 		"eslint": "^8.57.0",
 		"eslint-plugin-prettierx": "github:utily/eslint-plugin-prettierx#utily-20231004",
 		"eslint-plugin-simple-import-sort": "^12.1.1",
 		"prettierx": "github:utily/prettierx#utily-20231004",
-		"@vitest/coverage-istanbul": "^2.1.8",
-		"vitest": "^2.1.8",
 		"rimraf": "^6.0.1",
 		"tslib": "^2.8.1",
 		"typescript": "^5.7.2",
-		"wrangler": "^3.100.0"
+		"vitest": "^3.0.7",
+		"wrangler": "^3.107.3"
 	},
 	"dependencies": {
 		"cloudly-http": "0.2.0-alpha.21",
 		"cloudly-router": "0.2.0-alpha.18",
-		"gracely": "2.0.9"
+		"gracely": "2.0.10"
 	}
 }
