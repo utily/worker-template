@@ -1,5 +1,4 @@
-/// <reference types="vitest/config" />
-import { defineConfig } from "vite"
+import { defineConfig } from "vitest/config"
 
 export default defineConfig({
 	test: {
@@ -10,6 +9,6 @@ export default defineConfig({
 		testTimeout: 20000,
 		isolate: false,
 		exclude: ["node_modules", "dist"],
-		server: { deps: { inline: [] } },
+		server: { deps: { inline: true } },
 	},
 })

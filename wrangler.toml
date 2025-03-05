@@ -6,7 +6,10 @@ vars = {}
 main = "./index.ts"
 minify = true
 upload_source_maps = true
+tsconfig = "./tsconfig.json"
 
+[build]
+command = "npm run transpile"
 
 [env.production]
 vars = {}

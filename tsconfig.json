@@ -35,7 +35,8 @@
 		"baseUrl": ".",
 		"noImplicitThis": true,
 		"strictNullChecks": true,
-		"allowJs": true
+		"allowJs": true,
+		"isolatedModules": true
 	},
 	"include": [
 		"*.ts",
