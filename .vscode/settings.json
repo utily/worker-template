@@ -13,7 +13,7 @@
 		"*.config.ts": true,
 		"*.config.js": true,
 		"coverage": true,
-		"*.toml": false
+		"*.toml": true
 	},
 	"search.exclude": {
 		".*": false,
@@ -27,7 +27,8 @@
 		"node_modules": false,
 		"*.code-workspace": false,
 		"*.config.ts": false,
-		"coverage": false
+		"coverage": false,
+		"*.toml": false
 	},
 	"files.insertFinalNewline": true,
 	"editor.tabSize": 2,
