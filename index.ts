@@ -5,7 +5,7 @@ import "./item"
 import "./version"
 
 export default {
-	async fetch(request: Request, environment: Context.Environment) {
-		return await router.handle(request, new Context(environment))
+	async fetch(request: Request, environment: Environment) {
+		return router.handle(request, new Context(environment))
 	},
 }

@@ -1,0 +1,31 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "worker-template",
+	"main": "./index.ts",
+	"compatibility_date": "2025-03-10",
+	"minify": true,
+	"tsconfig": "./tsconfig.json",
+	"upload_source_maps": true,
+	"workers_dev": true,
+	"observability": { "enabled": true, "head_sampling_rate": 1 },
+	"build": { "command": "npm run transpile" },
+	"dev": { "host": "example.com", "port": 8787 },
+	"assets": { "directory": "./assets", "binding": "assets" },
+	"routes": [ ],
+	"vars": { },
+	"env": {
+		"local": {
+			"vars": { "adminSecret": "adminSecret" },
+			"kv_namespaces": [ ],
+			"r2_buckets": [ ],
+			"routes": [ ],
+			"durable_objects": { "bindings": [ ] }
+		},
+		"production": {
+			"vars": { },
+			"kv_namespaces": [ ],
+			"r2_buckets": [ ],
+			"durable_objects": { "bindings": [ ] }
+		}
+	}
+}

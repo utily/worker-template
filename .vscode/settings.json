@@ -44,6 +44,7 @@
 	"eslint.lintTask.enable": true,
 	"javascript.format.enable": false,
 	"typescript.format.enable": false,
+	"json.format.keepLines": true,
 	"cSpell.words": [
 		"authly",
 		"cloudly",

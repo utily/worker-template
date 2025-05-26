@@ -17,7 +17,7 @@
 		/* base options */
 		"esModuleInterop": true,
 		"types": [
-			"@cloudflare/workers-types",
+			"./worker-configuration.d.ts",
 			"vitest/globals"
 		],
 		"skipLibCheck": true,
@@ -41,7 +41,7 @@
 	"include": [
 		"*.ts",
 		"**/*.ts",
-		"./node_modules/@cloudflare/workers-types/index.d.ts"
+		"./worker-configuration.d.ts"
 	],
 	"exclude": [
 		"node_modules/",
