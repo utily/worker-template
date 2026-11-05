@@ -2,9 +2,13 @@
 	"$schema": "node_modules/wrangler/config-schema.json",
 	"name": "worker-template",
 	"main": "./index.ts",
-	"compatibility_date": "2025-03-10",
+	"compatibility_date": "2026-11-05",
 	"minify": true,
 	"tsconfig": "./tsconfig.json",
+	"compatibility_flags": [
+		"nodejs_compat",
+		"enable_request_signal"
+	],
 	"upload_source_maps": true,
 	"workers_dev": true,
 	"observability": { "enabled": true, "head_sampling_rate": 1 },
