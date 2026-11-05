@@ -29,7 +29,7 @@
 		"transpile": "tsc --build tsconfig.json -noEmit",
 		"deploy": "wrangler deploy --env production",
 		"login": "wrangler login",
-		"start": "wrangler dev --live-reload --env local --inspector-port 9229",
+		"start": "wrangler dev --live-reload --env \"\"",
 		"clean": "rimraf dist node_modules coverage",
 		"install": "npm i --min-release-age=0"
 	},

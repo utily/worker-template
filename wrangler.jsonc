@@ -16,6 +16,8 @@
 	"dev": { "host": "example.com", "port": 8787 },
 	"routes": [ ],
 	"vars": { },
-	"durable_objects": {"bindings": [{}]},
-	"env": { }
+	"durable_objects": { "bindings": [ { "class_name": "Durable", "name": "durableNamespace" } ] },
+	"env": { },
+	"migrations": [ { "new_sqlite_classes": [ "Durable" ], "tag": "1" } ],
+
 }
