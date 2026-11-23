@@ -49,7 +49,8 @@
 	"dependencies": {
 		"cloudly-http": "0.2.0-alpha.24",
 		"cloudly-router": "1.0.1-alpha.0",
-		"gracely": "2.0.10"
+		"gracely": "2.0.10",
+		"isly": "^1.10.0"
 	},
 	"allowScripts": {
 		"esbuild@0.28.2": true,

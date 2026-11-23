@@ -1,5 +1,5 @@
-import { Item as modelItem } from "./Item"
+import { Item as _Item } from "./Item"
 
 export namespace model {
-	export import Item = modelItem
+	export import Item = _Item
 }
