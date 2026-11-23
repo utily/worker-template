@@ -1,14 +1,12 @@
 {
+	"version": "0.2.0",
 	"configurations": [
 		{
-			"name": "Wrangler (attatch)",
 			"type": "node",
-			"request": "attach",
-			"port": 9229,
-			"cwd": "/",
-			"resolveSourceMapLocations": null,
-			"attachExistingChildren": false,
-			"autoAttachChildProcesses": false
+			"request": "launch",
+			"name": "Launch Program",
+			"program": "${workspaceFolder}/dist/_worker.js",
+			"preLaunchTask": "build"
 		}
 	]
 }
